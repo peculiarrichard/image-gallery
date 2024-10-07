@@ -1,6 +1,7 @@
 import { ref, watch } from 'vue'
 import type { Ref } from 'vue'
 import type { Photo } from '@/types/gallery.type'
+import axios from 'axios'
 
 const accessKey = import.meta.env.VITE_UNSPLASH_ACCESS_KEY
 
@@ -15,17 +16,13 @@ export function useFetcher(query: Ref<string>) {
     error.value = null
     data.value = null
     try {
-      const response = await fetch(url)
-      const json = await response.json()
-      if (!response.ok) {
-        error.value =
-          json.errors[0] ||
-          'An unknown error occurred with fetching the images for the gallery'
-      }
-      data.value = json
+      const response = await axios.get(url)
+      data.value = response.data
     } catch (err: any) {
-      error.value =
-        err.message || 'An unknown error occurred with fetching the images for the gallery'
+       error.value =
+         err.response?.data?.errors?.[0] ||
+         err.message ||
+         'An unknown error occurred while fetching images for the gallery'
     } finally {
       isLoading.value = false
     }

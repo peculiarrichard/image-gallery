@@ -46,7 +46,7 @@
 
 ## Learnings
 
-During the development of this project, I learned and improved my skills in:
+During the development of this project, I improved my skills on:
 
 - **CSS Grid and Flexbox:** Enhanced skills in creating a responsive and aesthetically pleasing staggered grid layout using CSS Grid and Flexbox.
 - **Sass for Styling:** Leveraged Sass to write modular and reusable styles, improving code maintainability and readability.
@@ -113,5 +113,5 @@ npm run dev
 
 --
 ## Images
-![Gallery](./assets/images/image1.png)
-![Modal](./assets/images/image2.png)
+![Gallery](./src/assets/images/image1.png)
+![Modal](./src/assets/images/image2.png)
