@@ -68,13 +68,13 @@ There are areas where the project could be further enhanced:
 ### 1. Clone the Repository:
 
 ```bash
-git clone https://github.com/yourusername/vue-gallery-app.git
+git clone https://github.com/peculiarrichard/image-gallery.git
 ```
 
 ### 2. Install Dependencies:
 
 ```bash
-cd vue-gallery-app
+cd image-gallery
 npm install
 ```
 

@@ -12,7 +12,7 @@ function handleClick() {
 
 <template>
   <div class="image-card" @click="handleClick">
-    <img :src="imageData.urls.regular" alt={{imageData.description}}>
+    <img :src="imageData.urls.small" alt={{imageData.description}}>
     <h3>{{ imageData.user.name }}</h3>
     <p>{{ imageData.location.name || 'Unknown Location' }}</p>
   </div>
