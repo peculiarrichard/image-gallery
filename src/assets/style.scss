@@ -1,0 +1,247 @@
+$grid-gap: 40px;
+$grid-columns: 3;
+$loading-color: #f6f6f6;
+$loading-text-color: #e7e7e7;
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #dde3ea;
+  height: 20rem;
+  width: 100%;
+
+  div {
+    background-color: white;
+    border-radius: 0.7rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+    width: 80%;
+    height: 2rem;
+    margin: auto;
+
+    input {
+      border: none;
+      outline: none;
+      font-weight: 600;
+      color: black;
+      font-size: 1rem;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+    }
+  }
+
+  h3 {
+    margin: auto;
+    font-size: 3rem;
+    width: 80%;
+    color: #2b3a51;
+
+    span {
+      font-weight: 700;
+      color: #6f7991;
+    }
+  }
+}
+
+.image-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform 0.2s;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: flex;
+    transition: transform 0.3s;
+    object-fit: cover;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    transition: background-color 0.3s ease;
+  }
+
+  h3,
+  p {
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    z-index: 2;
+  }
+
+  h3 {
+    font-size: 1rem;
+    margin-bottom: 1.6rem;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 0.75rem;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: $grid-gap;
+  place-items: start;
+  width: 70%;
+  margin: auto;
+  margin-top: -3rem;
+  z-index: 1;
+  margin-bottom: 5rem;
+}
+
+.loading {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  place-items: start;
+  width: 70%;
+  margin: auto;
+  margin-top: -1rem;
+  z-index: 1;
+  margin-bottom: 2rem;
+
+  .grid-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.2s;
+    background-color: $loading-color;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem 0;
+    height: 15rem;
+
+    &.loading {
+      .loading-text {
+        height: 16px;
+        width: 50%;
+        background-color: $loading-text-color;
+        margin-inline-start: 1rem;
+      }
+
+      .loading-text-p {
+        height: 16px;
+        width: 30%;
+        background-color: $loading-text-color;
+        margin-inline-start: 1rem;
+      }
+    }
+    &:nth-child(1) {
+      height: 12rem;
+    }
+
+    &:nth-child(2) {
+      height: 17rem;
+    }
+
+    &:nth-child(3) {
+      height: 14rem;
+    }
+
+    &:nth-child(4) {
+      height: 14rem;
+    }
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  animation: swipe-up 0.5s ease-out;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 100%;
+    height: 80%;
+    margin-top: 15px;
+    border-radius: 0.5rem 0.5rem 0 0;
+    object-fit: cover;
+  }
+}
+
+.close-button {
+  align-self: flex-end;
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: 400;
+}
+
+.image-details {
+  width: 100%;
+  background-color: white;
+  border-radius: 0 0 0.5rem 0.5rem;
+  padding: 0.8rem 0 0.8rem 0;
+
+  h2 {
+    color: #3b4568;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-inline-start: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: #939ba7;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-inline-start: 3rem;
+    text-transform: capitalize;
+  }
+}
+
+@keyframes swipe-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
